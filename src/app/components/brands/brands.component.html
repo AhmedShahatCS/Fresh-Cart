@@ -1,0 +1,21 @@
+<section class="my-2">
+  <h2 class="text-main">All Brands</h2>
+  <div class="row g-4">
+    <div class="col-md-2" *ngFor="let item of allBrands">
+      <div
+        class="product cursor-pointer shadow"
+        [routerLink]="['/details', item._id]"
+      >
+        <div class="p-2">
+          <img [src]="item.image" [alt]="item.name" class="w-100" />
+
+          <!-- <h4 class="h6">{{ item.title | termText : 2 }}</h4> -->
+        </div>
+        <h3 class="bg-main h4 text-center m-0">{{ item.name }}</h3>
+        <!-- <button class="btn-main w-100" (click)="addcart(item._id)">
+              Add Product
+            </button> -->
+      </div>
+    </div>
+  </div>
+</section>

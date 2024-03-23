@@ -1,0 +1,46 @@
+<section class="bg-main-light w-75 mx-auto">
+  <form
+    class="p-5 shadow"
+    [formGroup]="vericationForm"
+    (ngSubmit)="handelverivecationPassword()"
+  >
+    <h2 class="text-main text-center fw-bolder">Verification Code</h2>
+    <div>
+      <label for="resetCode" class="my-2 text-main fw-bold">ResetCode</label>
+      <input
+        type="text"
+        id="resetCode"
+        formControlName="resetCode"
+        placeholder="resetCode"
+        class="form-control"
+      />
+      <div
+        class=""
+        *ngIf="
+          (vericationForm.get('resetCode')?.touched ||
+            vericationForm.get('resetCode')?.value.length > 0) &&
+          vericationForm.get('resetCode')?.errors
+        "
+      >
+        <p
+          class="alert alert-danger"
+          *ngIf="vericationForm.get('resetCode')?.getError('required')"
+        >
+          resetCode is required
+        </p>
+      </div>
+    </div>
+    <button
+      (click)="handelverivecationPassword()"
+      routerLink="/restPassword"
+      [disabled]="vericationForm.invalid"
+      class="btn bg-main mt-2 rounded-2 py-1 px-2 me-1"
+      type="submit"
+    >
+      send code
+    </button>
+    <p class="alert alert-danger my-2" *ngIf="verifictionmessage">
+      {{ verifictionmessage }}
+    </p>
+  </form>
+</section>

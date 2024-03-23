@@ -1,0 +1,55 @@
+<section class="my-3">
+  <h2 class="text-main">All Orders</h2>
+  <div class="my-2 p-3 shadow mx-auto bg-dark">
+    <h2 class="text-center text-main">Owner Info</h2>
+    <h2 class="h4 text-white">
+      <span class="text-main"> Name: </span>
+      <span>{{ userorders.user.name }}</span>
+    </h2>
+    <h2 class="h4 text-white">
+      <span class="text-main"> Email: </span>
+      <span>{{ userorders.user.email }}</span>
+    </h2>
+    <h2 class="h4 text-white">
+      <span class="text-main">Phone: </span>
+      <span>{{ userorders.user.phone }}</span>
+    </h2>
+    <h2 class="h4 text-white">
+      <span class="text-main">City: </span>
+      <span>{{ userorders.shippingAddress.city }}</span>
+    </h2>
+    <p class="h4 text-white">
+      <span class="text-main">Details:</span
+      >{{ userorders.shippingAddress.details }}
+    </p>
+  </div>
+  <div class="row" *ngFor="let item of userorders.cartItems">
+    <div
+      class="d-flex justify-content-start align-items-center bg-success bg-opacity-50 mb-2 py-3"
+    >
+      <div class="me-4">
+        <img [src]="item.product.imageCover" alt="" width="200px" />
+      </div>
+      <div>
+        <h2 class="h5">
+          Name:
+          <span class="text-main">{{ item.product.title | termText : 2 }}</span>
+        </h2>
+        <h2 class="h5">
+          Category:
+          <span class="text-main">{{ item.product.category.name }}</span>
+        </h2>
+        <h2 class="h5">
+          Brand: <span class="text-main">{{ item.product.brand.name }}</span>
+        </h2>
+
+        <h2 class="h5">
+          Rating: <i class="fa-solid fa-star rating-color fs-5"></i>
+          {{ item.product.ratingsAverage }}
+        </h2>
+        <h2 class="h5">Price: {{ item.price | currency : "EGP" }}</h2>
+        <h2 class="h5">Count: {{ item.count }}</h2>
+      </div>
+    </div>
+  </div>
+</section>

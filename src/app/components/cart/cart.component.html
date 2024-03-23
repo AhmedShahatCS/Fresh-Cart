@@ -1,0 +1,45 @@
+<section class="p-3 mx-auto w-75 bg-main-light my-3 rounded-3">
+  <h1>Shop Cart</h1>
+  <p class="text-main p-0">
+    Total Price :{{ cartdatails.totalCartPrice | currency : " EGP " }}
+  </p>
+  <div class="row border-bottom py-2" *ngFor="let item of cartdatails.products">
+    <div class="col-md-1">
+      <img [src]="item.product.imageCover" alt="" class="w-100" />
+    </div>
+    <div class="col-md-11">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="details">
+          <h3 class="h6">{{ item.product.title }}</h3>
+          <p class="text-main p-0 m-0">price: {{ item.price }}</p>
+          <button class="btn p-0 m-0" (click)="removeItem(item.product._id)">
+            <i class="fa-regular fa-trash-can text-main"></i> Remove
+          </button>
+        </div>
+        <div class="icon">
+          <button
+            class="btn border border-success"
+            (click)="changesCount(item.product._id, item.count + 1)"
+          >
+            +
+          </button>
+          <span class="mx-1">{{ item.count }}</span>
+          <button
+            class="btn border border-success"
+            (click)="changesCount(item.product._id, item.count - 1)"
+          >
+            -
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between align-content-center">
+    <button [routerLink]="['/checkout', cartdatails._id]" class="btn-main my-2">
+      Checkout
+    </button>
+    <button class="btn btn-danger my-2" (click)="clearAll()">
+      Clear All Cart
+    </button>
+  </div>
+</section>

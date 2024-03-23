@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="./assets/images/freshcart-logo.svg" alt="" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/home"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/categries"
+            >categries</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/product"
+            >product</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/brands"
+            >brands</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/allorders"
+            >AllOrders</a
+          >
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex justify-content-center align-items-center"
+      >
+        <li class="nav-link" routerLink="/whishlist">
+          <a class="nav-link position-relative me-1 cursor-pointer">
+            <i class="fa-solid fa-heart fa-2x text-danger"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{
+              whishlistnum
+            }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative me-2" routerLink="/cart">
+            <i class="fas fa-cart-shopping fa-2x text-main"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{
+              cartnumber
+            }}</span></a
+          >
+        </li>
+        <li class="nav-item" role="button">
+          <i class="fa-brands fa-facebook me-3"></i>
+          <i class="fa-brands fa-linkedin me-3"></i>
+          <i class="fa-brands fa-twitter me-3"></i>
+          <i class="fa-brands fa-tiktok me-3"></i>
+          <i class="fa-brands fa-youtube me-3"></i>
+          <i class="fa-brands fa-instagram me-3"></i>
+        </li>
+
+        <li class="nav-item" role="button">
+          <span (click)="logout()">SignOut</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

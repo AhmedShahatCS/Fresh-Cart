@@ -1,0 +1,36 @@
+<section class="my-3 p-4 rounded-3 bg-main-light shadow w-75 mx-auto">
+  <form action="" [formGroup]="checkout">
+    <div>
+      <label for="details">Details</label>
+      <textarea
+        id="details"
+        formControlName="details"
+        class="form-control"
+      ></textarea>
+    </div>
+    <div>
+      <label for="phone">phone</label>
+      <input
+        type="tel"
+        id="phone"
+        formControlName="phone"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label for="city">city</label>
+      <input
+        type="text"
+        id="city"
+        formControlName="city"
+        class="form-control"
+      />
+    </div>
+    <button (click)="hadellformcheckout()" class="btn-main mt-3">
+      Online Payment <img src="./assets/images/visa-1.svg" alt="" />
+    </button>
+    <button (click)="handelcashcheckout()" class="btn-main mt-3 p-3 ms-2">
+      Cash Payment
+    </button>
+  </form>
+</section>
